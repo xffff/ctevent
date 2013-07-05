@@ -1,0 +1,21 @@
+/********************************************************************
+
+ ctevent.scd - 
+ 	     Allows for SuperCollider to communicate with conTimbre
+	     using OSC protocol and pattern framework.
+
+*********************************************************************/
+
+1. Load ctevent.scd
+2. Access conTimbre using patterns with the \type set to ctevent.
+
+e.g:
+	Pbind(
+		\type, \ctevent,
+		\oscout, NetAddr("127.0.0.1", 3000),
+		\osccmd, \noteon,
+		\voicename, \fl,
+                \midinote, Prand((40..60),inf),
+		\dur, Prand([1,2,1/2],inf),
+		\amp, Pexprand(0.75,1.0,inf)
+	)
